@@ -53,7 +53,7 @@ class SingleResourceGenerator
 
     static private function latestFileModification($sourceDir)
     {
-      $fileTimes = array_map("filemtime", iterator_to_array(new \RecursiveIteratorIterator(new \RecursiveDirectoryIterator('.'))));
+      $fileTimes = array_map("filemtime", iterator_to_array(new \RecursiveIteratorIterator(new \RecursiveDirectoryIterator($sourceDir))));
       arsort($fileTimes);
       return reset($fileTimes);
     }
